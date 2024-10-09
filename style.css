@@ -1,3 +1,4 @@
+/*index用*/
 /* 全体のリセット */
 * {
   margin: 0;
@@ -15,7 +16,7 @@ body {
   background-color: #f0f0f0;
 }
 
-/* ログインフォーム全体のコンテナ */
+/* フォーム全体のコンテナ */
 .form-container {
   background-color: white;
   padding: 30px;
@@ -35,9 +36,9 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="password
   font-size: 1.2em;
 }
 
-/* ログインボタンのスタイル */
+/* ボタンのスタイル */
 button {
-  background-color: #007BFF;
+  background-color: #28a745;
   color: white;
   padding: 15px;
   border: none;
@@ -48,7 +49,7 @@ button {
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #218838;
 }
 
 /* ラジオボタンとそのラベルのスタイル */
@@ -63,24 +64,41 @@ input[type="radio"] {
   margin-right: 10px;
 }
 
-/* 全体のスタイル */
-body {
-  font-family: Arial, sans-serif;
+
+
+
+/*login*/
+/* 全体のリセット */
+* {
   margin: 0;
   padding: 0;
-  background-color: #f0f0f0;
+  box-sizing: border-box;
 }
 
-/* ヘッダー部分のスタイル */
+/* 画面全体のスタイル */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+/* ヘッダー部分のスタイル（固定レイアウトの基盤） */
 .header {
+  position: fixed;  /* 左上に固定 */
+  top: 10px;
+  left: 10px;
   display: flex;
   align-items: center;
-  justify-content: start;
   background-color: #007BFF;
   padding: 10px;
+  border-radius: 10px;
+  z-index: 1000; /* 他の要素より前に表示されるようにする */
 }
 
-/* Profile画像のスタイル */
+/* プロフィール画像のスタイル */
 .profile-image {
   width: 50px;
   height: 50px;
@@ -88,7 +106,7 @@ body {
   margin-right: 15px;
 }
 
-/* メッセージボックスとグッドボックスのスタイル */
+/* メッセージボタンとグッドボタンのスタイル */
 .box {
   color: white;
   text-decoration: none;
@@ -102,6 +120,30 @@ body {
 
 .box:hover {
   background-color: #004a99;
+}
+
+/* メインコンテンツが固定要素の下に隠れないように、適切なパディングを追加 */
+.main-content {
+  padding-top: 80px;  /* ヘッダーの高さに応じて調整 */
+}
+
+/*ゲーム一覧用*/
+/* 全体のリセット */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 画面全体のスタイル */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+  height: auto; /* 高さを自動にして、コンテンツ量に応じて拡張 */
+  min-height: 100vh; /* 最低限、画面の高さに対応させる */
+  overflow-y: auto; /* スクロールを常に許可 */
 }
 
 /* ゲーム一覧のメイン部分 */
@@ -121,6 +163,7 @@ body {
   padding: 15px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease; /* ホバー時のアニメーション効果 */
 }
 
 .game-icon {
@@ -135,8 +178,7 @@ body {
   text-align: center;
 }
 
-/* スクロールのためにbody全体を自動で拡張 */
-body {
-  height: 100vh;
-  overflow-y: scroll;
+/* ゲームアイテムホバー時のエフェクト */
+.game-item:hover {
+  transform: scale(1.05); /* アイテムを少し大きくする */
 }

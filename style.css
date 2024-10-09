@@ -62,3 +62,81 @@ button:hover {
 input[type="radio"] {
   margin-right: 10px;
 }
+
+/* 全体のスタイル */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+/* ヘッダー部分のスタイル */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  background-color: #007BFF;
+  padding: 10px;
+}
+
+/* Profile画像のスタイル */
+.profile-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+/* メッセージボックスとグッドボックスのスタイル */
+.box {
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  margin-right: 15px;
+  background-color: #0056b3;
+  border-radius: 10px;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.box:hover {
+  background-color: #004a99;
+}
+
+/* ゲーム一覧のメイン部分 */
+.game-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* ゲームアイコンと名前のスタイル */
+.game-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.game-icon {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.game-item p {
+  margin: 0;
+  font-size: 1em;
+  text-align: center;
+}
+
+/* スクロールのためにbody全体を自動で拡張 */
+body {
+  height: 100vh;
+  overflow-y: scroll;
+}

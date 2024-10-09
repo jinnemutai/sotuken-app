@@ -6,63 +6,63 @@
     <title>ログイン</title>
     <link rel="stylesheet" href="style.css">
     <script>
+        // ログイン入力フィールドのプレースホルダーを変更する関数
         function updatePlaceholder() {
             var phoneOption = document.getElementById("phoneOption").checked;
+            var emailOption = document.getElementById("emailOption").checked;
             var inputField = document.getElementById("loginInput");
 
-            // 選択に応じてプレースホルダーと入力のパターンを変更
             if (phoneOption) {
+                // 電話番号が選択された場合のプレースホルダーとパターン
                 inputField.placeholder = "例: 090-1234-5678";
                 inputField.setAttribute("pattern", "[0-9]{3}-[0-9]{4}-[0-9]{4}");
                 inputField.setAttribute("type", "tel");
-            } else {
+            } else if (emailOption) {
+                // メールアドレスが選択された場合のプレースホルダーとタイプ
                 inputField.placeholder = "例: example@example.com";
                 inputField.removeAttribute("pattern");
                 inputField.setAttribute("type", "email");
+            } else {
+                // ユーザーネームが選択された場合のプレースホルダー
+                inputField.placeholder = "ユーザーネームを入力";
+                inputField.removeAttribute("pattern");
+                inputField.setAttribute("type", "text");
             }
         }
 
+        // フォーム送信前の入力チェックを行う関数
         function validateForm() {
             var inputField = document.getElementById("loginInput").value;
             var passwordField = document.getElementById("passwordInput").value;
 
-            // 入力フィールドが空でないか確認
+            // 電話番号、メールアドレス、ユーザーネーム、またはパスワードが空欄かどうかを確認
             if (inputField === "" || passwordField === "") {
-                alert("電話番号かメールアドレス、およびパスワードを入力してください。");
-                return false;
+                alert("電話番号、メールアドレス、ユーザーネーム、またはパスワードを入力してください。");
+                return false; // 入力が不足している場合は送信を中止
             }
-            return true;
-        }
-
-        // ログイン成功後にホーム画面へ移動する
-        function loginSuccess(event) {
-            event.preventDefault(); // フォームのデフォルト送信を防ぐ
-            if (validateForm()) {
-                // ここで通常サーバーにデータを送信するが、今回は成功と仮定してホーム画面へリダイレクト
-                window.location.href = "ce.html";
-            }
+            return true; // 入力が正しければ送信を許可
         }
     </script>
 </head>
 <body>
-    <div class="login-container">
+    <div class="form-container">
         <h1>ログインページ</h1>
-        <form onsubmit="loginSuccess(event)">
+        <form action="/submit-login" method="post" onsubmit="return validateForm()">
+            <!-- ログイン方法の選択（電話番号、メールアドレス、ユーザーネーム） -->
             <div class="radio-group">
-                <!-- 選択ボタンで電話番号かメールアドレスを選ぶ -->
                 <input type="radio" id="phoneOption" name="loginType" value="phone" onclick="updatePlaceholder()" checked>
                 <label for="phoneOption">電話番号</label>
                 
                 <input type="radio" id="emailOption" name="loginType" value="email" onclick="updatePlaceholder()">
                 <label for="emailOption">メールアドレス</label>
+                
+                <input type="radio" id="usernameOption" name="loginType" value="username" onclick="updatePlaceholder()">
+                <label for="usernameOption">ユーザーネーム</label>
             </div>
-            
-            <!-- 1つの入力フィールドを使う -->
-            <input type="text" id="loginInput" name="loginInput" placeholder="例: 090-1234-5678" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" required>
 
-            <!-- パスワード入力フィールド -->
-            <label for="passwordInput">パスワードを入力してください:</label>
-            <input type="password" id="passwordInput" name="passwordInput" placeholder="パスワード" required>
+            <!-- ログイン情報入力フィールド -->
+            <input type="text" id="loginInput" name="loginInput" placeholder="例: 090-1234-5678" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" required>
+            <input type="password" id="passwordInput" name="password" placeholder="パスワード" required>
             
             <button type="submit">ログイン</button>
         </form>

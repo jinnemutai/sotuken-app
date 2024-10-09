@@ -6,50 +6,53 @@
     <title>ログイン</title>
     <link rel="stylesheet" href="style.css">
     <script>
-        // ログイン入力フィールドのプレースホルダーを変更する関数
+        // プレースホルダーと入力パターンを選択に応じて変更する関数
         function updatePlaceholder() {
-            var phoneOption = document.getElementById("phoneOption").checked;
-            var emailOption = document.getElementById("emailOption").checked;
-            var inputField = document.getElementById("loginInput");
+            var phoneOption = document.getElementById("phoneOption").checked; // 電話番号選択
+            var emailOption = document.getElementById("emailOption").checked; // メールアドレス選択
+            var inputField = document.getElementById("loginInput"); // 入力フィールドの参照
 
+            // 電話番号が選ばれた場合
             if (phoneOption) {
-                // 電話番号が選択された場合のプレースホルダーとパターン
-                inputField.placeholder = "例: 090-1234-5678";
-                inputField.setAttribute("pattern", "[0-9]{3}-[0-9]{4}-[0-9]{4}");
-                inputField.setAttribute("type", "tel");
-            } else if (emailOption) {
-                // メールアドレスが選択された場合のプレースホルダーとタイプ
-                inputField.placeholder = "例: example@example.com";
-                inputField.removeAttribute("pattern");
-                inputField.setAttribute("type", "email");
-            } else {
-                // ユーザーネームが選択された場合のプレースホルダー
-                inputField.placeholder = "ユーザーネームを入力";
-                inputField.removeAttribute("pattern");
-                inputField.setAttribute("type", "text");
+                inputField.placeholder = "例: 090-1234-5678"; // プレースホルダーを電話番号形式に変更
+                inputField.setAttribute("pattern", "[0-9]{3}-[0-9]{4}-[0-9]{4}"); // 電話番号のパターンを設定
+                inputField.setAttribute("type", "tel"); // inputのタイプをtelに
+            } 
+            // メールアドレスが選ばれた場合
+            else if (emailOption) {
+                inputField.placeholder = "例: example@example.com"; // プレースホルダーをメールアドレス形式に変更
+                inputField.removeAttribute("pattern"); // パターンを解除
+                inputField.setAttribute("type", "email"); // inputのタイプをemailに
+            } 
+            // ユーザーネームが選ばれた場合
+            else {
+                inputField.placeholder = "ユーザーネームを入力"; // プレースホルダーをユーザーネームに変更
+                inputField.removeAttribute("pattern"); // パターンを解除
+                inputField.setAttribute("type", "text"); // inputのタイプをtextに
             }
         }
 
-        // フォーム送信前の入力チェックを行う関数
+        // フォームのバリデーションを行う関数
         function validateForm() {
-            var inputField = document.getElementById("loginInput").value;
-            var passwordField = document.getElementById("passwordInput").value;
+            var inputField = document.getElementById("loginInput").value; // ログイン情報
+            var passwordField = document.getElementById("passwordInput").value; // パスワード
 
-            // 電話番号、メールアドレス、ユーザーネーム、またはパスワードが空欄かどうかを確認
+            // 入力フィールドが空でないか確認
             if (inputField === "" || passwordField === "") {
                 alert("電話番号、メールアドレス、ユーザーネーム、またはパスワードを入力してください。");
-                return false; // 入力が不足している場合は送信を中止
+                return false; // フォーム送信を中止
             }
-            return true; // 入力が正しければ送信を許可
+            return true; // フォーム送信を許可
         }
     </script>
 </head>
 <body>
     <div class="form-container">
         <h1>ログインページ</h1>
-        <form action="/submit-login" method="post" onsubmit="return validateForm()">
-            <!-- ログイン方法の選択（電話番号、メールアドレス、ユーザーネーム） -->
+        <!-- フォームの送信先はhome.html（GETメソッドで処理） -->
+        <form action="home.html" method="get" onsubmit="return validateForm()">
             <div class="radio-group">
+                <!-- ログイン方法の選択（ラジオボタン） -->
                 <input type="radio" id="phoneOption" name="loginType" value="phone" onclick="updatePlaceholder()" checked>
                 <label for="phoneOption">電話番号</label>
                 
@@ -60,10 +63,13 @@
                 <label for="usernameOption">ユーザーネーム</label>
             </div>
 
-            <!-- ログイン情報入力フィールド -->
+            <!-- ログイン情報を入力するフィールド -->
             <input type="text" id="loginInput" name="loginInput" placeholder="例: 090-1234-5678" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" required>
+
+            <!-- パスワードを入力するフィールド -->
             <input type="password" id="passwordInput" name="password" placeholder="パスワード" required>
             
+            <!-- ログインボタン -->
             <button type="submit">ログイン</button>
         </form>
     </div>

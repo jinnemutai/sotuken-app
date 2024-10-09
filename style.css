@@ -247,3 +247,55 @@ body {
 .last-message {
   color: #666;
 }
+
+
+/*グッドページ用*/
+/* 全体のリセット */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 画面全体のスタイル */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+/* ヘッダー部分のスタイル */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #007BFF;
+  color: white;
+  padding: 15px;
+}
+
+/* グッドボックスコンテナのスタイル */
+.good-container {
+  padding: 20px;
+}
+
+/* グッドリストのスタイル */
+.good-list {
+  list-style: none;
+  padding: 0;
+}
+
+/* グッドアイテムのスタイル */
+.good-item {
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* ユーザー名のスタイル */
+.username {
+  font-weight: bold;
+}

@@ -3,40 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ログイン</title>
+    <title>アカウント作成</title>
     <link rel="stylesheet" href="style.css">
     <script>
+        // ログイン入力フィールドのプレースホルダーを電話番号またはメールアドレスに変更する関数
         function updatePlaceholder() {
             var phoneOption = document.getElementById("phoneOption").checked;
             var inputField = document.getElementById("loginInput");
 
             if (phoneOption) {
+                // 電話番号が選択された場合のプレースホルダーとパターン
                 inputField.placeholder = "例: 090-1234-5678";
                 inputField.setAttribute("pattern", "[0-9]{3}-[0-9]{4}-[0-9]{4}");
                 inputField.setAttribute("type", "tel");
             } else {
+                // メールアドレスが選択された場合のプレースホルダーとタイプ
                 inputField.placeholder = "例: example@example.com";
                 inputField.removeAttribute("pattern");
                 inputField.setAttribute("type", "email");
             }
         }
 
+        // フォーム送信前の入力チェックを行う関数
         function validateForm() {
             var inputField = document.getElementById("loginInput").value;
+            var usernameField = document.getElementById("username").value;
             var passwordField = document.getElementById("passwordInput").value;
 
-            if (inputField === "" || passwordField === "") {
-                alert("電話番号かメールアドレス、およびパスワードを入力してください。");
-                return false;
+            // 全てのフィールドが入力されているか確認
+            if (inputField === "" || usernameField === "" || passwordField === "") {
+                alert("電話番号かメールアドレス、ユーザーネーム、およびパスワードを入力してください。");
+                return false; // 入力が不足している場合、送信を中止
             }
-            return true;
+            return true; // 問題がない場合、送信を許可
         }
     </script>
 </head>
 <body>
-    <div class="login-container">
-        <h1>ログインページ</h1>
-        <form action="/submit-login" method="post" onsubmit="return validateForm()">
+    <div class="form-container">
+        <h1>アカウント作成</h1>
+        <form action="/submit-account" method="post" onsubmit="return validateForm()">
+            <!-- ログイン方法の選択（電話番号またはメールアドレス） -->
             <div class="radio-group">
                 <input type="radio" id="phoneOption" name="loginType" value="phone" onclick="updatePlaceholder()" checked>
                 <label for="phoneOption">電話番号</label>
@@ -44,13 +51,13 @@
                 <input type="radio" id="emailOption" name="loginType" value="email" onclick="updatePlaceholder()">
                 <label for="emailOption">メールアドレス</label>
             </div>
-            
-            <input type="text" id="loginInput" name="loginInput" placeholder="例: 090-1234-5678" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" required>
 
-            <label for="passwordInput">パスワードを入力してください:</label>
-            <input type="password" id="passwordInput" name="passwordInput" placeholder="パスワード" required>
+            <!-- ログイン情報入力フィールド -->
+            <input type="text" id="loginInput" name="loginInput" placeholder="例: 090-1234-5678" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" required>
+            <input type="text" id="username" name="username" placeholder="ユーザーネーム" required>
+            <input type="password" id="passwordInput" name="password" placeholder="パスワード" required>
             
-            <button type="submit">ログイン</button>
+            <button type="submit">アカウント作成</button>
         </form>
     </div>
 </body>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ログイン</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function updatePlaceholder() {
+            var phoneOption = document.getElementById("phoneOption").checked;
+            var inputField = document.getElementById("loginInput");
+
+            // 選択に応じてプレースホルダーと入力のパターンを変更
+            if (phoneOption) {
+                inputField.placeholder = "例: 090-1234-5678";
+                inputField.setAttribute("pattern", "[0-9]{3}-[0-9]{4}-[0-9]{4}");
+                inputField.setAttribute("type", "tel");
+            } else {
+                inputField.placeholder = "例: example@example.com";
+                inputField.removeAttribute("pattern");
+                inputField.setAttribute("type", "email");
+            }
+        }
+
+        function validateForm() {
+            var inputField = document.getElementById("loginInput").value;
+            var passwordField = document.getElementById("passwordInput").value;
+
+            // 入力フィールドが空でないか確認
+            if (inputField === "" || passwordField === "") {
+                alert("電話番号かメールアドレス、およびパスワードを入力してください。");
+                return false;
+            }
+            return true;
+        }
+
+        // ログイン成功後にホーム画面へ移動する
+        function loginSuccess(event) {
+            event.preventDefault(); // フォームのデフォルト送信を防ぐ
+            if (validateForm()) {
+                // ここで通常サーバーにデータを送信するが、今回は成功と仮定してホーム画面へリダイレクト
+                window.location.href = "ce.html";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="login-container">
+        <h1>ログインページ</h1>
+        <form onsubmit="loginSuccess(event)">
+            <div class="radio-group">
+                <!-- 選択ボタンで電話番号かメールアドレスを選ぶ -->
+                <input type="radio" id="phoneOption" name="loginType" value="phone" onclick="updatePlaceholder()" checked>
+                <label for="phoneOption">電話番号</label>
+                
+                <input type="radio" id="emailOption" name="loginType" value="email" onclick="updatePlaceholder()">
+                <label for="emailOption">メールアドレス</label>
+            </div>
+            
+            <!-- 1つの入力フィールドを使う -->
+            <input type="text" id="loginInput" name="loginInput" placeholder="例: 090-1234-5678" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" required>
+
+            <!-- パスワード入力フィールド -->
+            <label for="passwordInput">パスワードを入力してください:</label>
+            <input type="password" id="passwordInput" name="passwordInput" placeholder="パスワード" required>
+            
+            <button type="submit">ログイン</button>
+        </form>
+    </div>
+</body>
+</html>

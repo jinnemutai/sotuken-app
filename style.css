@@ -1,4 +1,3 @@
-/*index用*/
 /* 全体のリセット */
 * {
   margin: 0;
@@ -9,24 +8,30 @@
 /* 画面全体のスタイル */
 body {
   font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow-y: scroll;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: #f0f0f0;
 }
 
-/* フォーム全体のコンテナ */
-.form-container {
+/* 共通要素: フォームコンテナ、ヘッダーなど */
+.form-container, .header, .chat-item, .good-item, .game-item {
   background-color: white;
-  padding: 30px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* フォームのスタイル */
+.form-container {
+  padding: 30px;
   width: 400px;
   text-align: center;
 }
 
-/* フォーム内の入力フィールド */
 input[type="text"], input[type="email"], input[type="tel"], input[type="password"] {
   width: 100%;
   padding: 10px;
@@ -52,53 +57,29 @@ button:hover {
   background-color: #218838;
 }
 
-/* ラジオボタンとそのラベルのスタイル */
+/* ラジオボタンとラベル */
 .radio-group {
   display: flex;
   justify-content: space-around;
   margin-bottom: 20px;
 }
 
-/* ラジオボタンのスタイル */
 input[type="radio"] {
   margin-right: 10px;
 }
 
-
-
-
-/*login*/
-/* 全体のリセット */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* 画面全体のスタイル */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  overflow-y: scroll;
-}
-
-/* ヘッダー部分のスタイル（固定レイアウトの基盤） */
+/* ヘッダーのスタイル */
 .header {
-  position: fixed;  /* 左上に固定 */
+  position: fixed;
   top: 10px;
   left: 10px;
   display: flex;
   align-items: center;
   background-color: #007BFF;
   padding: 10px;
-  border-radius: 10px;
-  z-index: 1000; /* 他の要素より前に表示されるようにする */
+  z-index: 1000;
 }
 
-/* プロフィール画像のスタイル */
 .profile-image {
   width: 50px;
   height: 50px;
@@ -106,10 +87,8 @@ body {
   margin-right: 15px;
 }
 
-/* メッセージボタンとグッドボタンのスタイル */
 .box {
   color: white;
-  text-decoration: none;
   padding: 10px 20px;
   margin-right: 15px;
   background-color: #0056b3;
@@ -122,31 +101,11 @@ body {
   background-color: #004a99;
 }
 
-/* メインコンテンツが固定要素の下に隠れないように、適切なパディングを追加 */
 .main-content {
-  padding-top: 80px;  /* ヘッダーの高さに応じて調整 */
+  padding-top: 80px;
 }
 
-/*ゲーム一覧用*/
-/* 全体のリセット */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* 画面全体のスタイル */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f0f0f0;
-  height: auto; /* 高さを自動にして、コンテンツ量に応じて拡張 */
-  min-height: 100vh; /* 最低限、画面の高さに対応させる */
-  overflow-y: auto; /* スクロールを常に許可 */
-}
-
-/* ゲーム一覧のメイン部分 */
+/* ゲーム一覧のスタイル */
 .game-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -154,16 +113,12 @@ body {
   padding: 20px;
 }
 
-/* ゲームアイコンと名前のスタイル */
 .game-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: white;
   padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease; /* ホバー時のアニメーション効果 */
+  transition: transform 0.3s ease;
 }
 
 .game-icon {
@@ -172,130 +127,39 @@ body {
   margin-bottom: 10px;
 }
 
-.game-item p {
-  margin: 0;
-  font-size: 1em;
-  text-align: center;
-}
-
-/* ゲームアイテムホバー時のエフェクト */
 .game-item:hover {
-  transform: scale(1.05); /* アイテムを少し大きくする */
+  transform: scale(1.05);
 }
 
-
-/*メッセーいボックス用*/
-/* 全体のリセット */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* 画面全体のスタイル */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
-  height: 100vh;
-  overflow-y: scroll;
-}
-
-/* ヘッダー部分のスタイル */
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #007BFF;
-  color: white;
-  padding: 15px;
-}
-
-/* チャットコンテナのスタイル */
-.chat-container {
+/* メッセージリスト */
+.chat-container, .good-container {
   padding: 20px;
 }
 
-/* チャットリストのスタイル */
-.chat-list {
+.chat-list, .good-list {
   list-style: none;
   padding: 0;
 }
 
-/* チャットアイテムのスタイル */
-.chat-item {
-  background-color: white;
+.chat-item, .good-item {
   padding: 15px;
-  border-radius: 10px;
   margin-bottom: 10px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  cursor: pointer; /* マウスカーソルを指に変更 */
+  cursor: pointer;
   transition: background-color 0.3s;
 }
 
-/* チャットアイテムにホバーしたときのスタイル */
 .chat-item:hover {
   background-color: #e0e0e0;
 }
 
-/* ユーザー名のスタイル */
 .username {
   font-weight: bold;
-  margin-bottom: 5px;
 }
 
-/* 最近のメッセージ内容のスタイル */
 .last-message {
   color: #666;
 }
 
-
-/*グッドページ用*/
-/* 全体のリセット */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* 画面全体のスタイル */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
-  height: 100vh;
-  overflow-y: scroll;
-}
-
-/* ヘッダー部分のスタイル */
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #007BFF;
-  color: white;
-  padding: 15px;
-}
-
-/* グッドボックスコンテナのスタイル */
-.good-container {
-  padding: 20px;
-}
-
-/* グッドリストのスタイル */
-.good-list {
-  list-style: none;
-  padding: 0;
-}
-
-/* グッドアイテムのスタイル */
-.good-item {
-  background-color: white;
-  padding: 15px;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
-/* ユーザー名のスタイル */
-.username {
-  font-weight: bold;
+.home {
+  align-items: normal;
 }

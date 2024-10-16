@@ -4,6 +4,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+/* ページ全体のデフォルトのマージンやパディングをリセットし、要素のサイズ計算をbox-sizingで調整します。 */
 
 /* 画面全体のスタイル */
 body {
@@ -17,6 +18,7 @@ body {
   justify-content: center;
   align-items: center;
 }
+/* 画面の背景色とフォントを設定し、画面全体を中央に配置するスタイルです。 */
 
 /* 共通要素: フォームコンテナ、ヘッダーなど */
 .form-container, .header, .chat-item, .good-item, .game-item {
@@ -24,6 +26,7 @@ body {
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+/* フォームやヘッダー、アイテムに共通する背景色、角丸、影を設定。要素の視覚的なアクセントになります。 */
 
 /* フォームのスタイル */
 .form-container {
@@ -31,6 +34,7 @@ body {
   width: 400px;
   text-align: center;
 }
+/* フォーム全体の余白と幅を指定し、中央揃えにしています。 */
 
 input[type="text"], input[type="email"], input[type="tel"], input[type="password"] {
   width: 100%;
@@ -40,6 +44,7 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="password
   border-radius: 5px;
   font-size: 1.2em;
 }
+/* テキスト入力フィールドに共通するスタイルです。全幅にし、パディング、マージン、ボーダーなどを設定しています。 */
 
 /* ボタンのスタイル */
 button {
@@ -52,10 +57,12 @@ button {
   font-size: 1.2em;
   width: 100%;
 }
+/* ボタンのスタイル。緑色で角丸、カーソルが指に変わるようにしています。 */
 
 button:hover {
   background-color: #218838;
 }
+/* ボタンがホバーされたときの色変更。インタラクティブな要素に視覚的なフィードバックを提供します。 */
 
 /* ラジオボタンとラベル */
 .radio-group {
@@ -63,10 +70,12 @@ button:hover {
   justify-content: space-around;
   margin-bottom: 20px;
 }
+/* ラジオボタンのグループを横並びにして間隔を均等にしています。 */
 
 input[type="radio"] {
   margin-right: 10px;
 }
+/* ラジオボタンの右側に少し余白を追加。 */
 
 /* ヘッダーのスタイル */
 .header {
@@ -79,6 +88,7 @@ input[type="radio"] {
   padding: 10px;
   z-index: 1000;
 }
+/* ヘッダーの固定位置を指定し、背景色、パディング、配置を設定しています。 */
 
 .profile-image {
   width: 50px;
@@ -86,6 +96,7 @@ input[type="radio"] {
   border-radius: 50%;
   margin-right: 15px;
 }
+/* プロフィール画像を丸くし、サイズを指定。右側に余白を設定。 */
 
 .box {
   color: white;
@@ -96,22 +107,26 @@ input[type="radio"] {
   font-size: 1.2em;
   text-align: center;
 }
+/* ボックスに対するスタイル。白いテキスト、角丸、中央揃え。 */
 
 .box:hover {
   background-color: #004a99;
 }
+/* ボックスがホバーされたときの色変更。 */
 
 .main-content {
   padding-top: 80px;
 }
+/* ヘッダーに余白を追加し、コンテンツと重ならないようにしています。 */
 
 /* ゲーム一覧のスタイル */
 .game-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-columns: repeat(2, 1fr); /* 2列に固定 */
   gap: 20px;
   padding: 20px;
 }
+/* ゲーム一覧を2列のグリッドレイアウトにし、間隔と余白を指定。 */
 
 .game-item {
   display: flex;
@@ -120,26 +135,31 @@ input[type="radio"] {
   padding: 15px;
   transition: transform 0.3s ease;
 }
+/* ゲームアイテムの表示を中央に揃え、ホバー時に拡大するトランジションを追加。 */
 
 .game-icon {
   width: 100px;
   height: 100px;
   margin-bottom: 10px;
 }
+/* ゲームアイコンのサイズと余白を指定。 */
 
 .game-item:hover {
   transform: scale(1.05);
 }
+/* ゲームアイテムがホバーされたときに拡大するエフェクト。 */
 
 /* メッセージリスト */
 .chat-container, .good-container {
   padding: 20px;
 }
+/* メッセージリストの余白を設定。 */
 
 .chat-list, .good-list {
   list-style: none;
   padding: 0;
 }
+/* リストのデフォルトのスタイルを削除。 */
 
 .chat-item, .good-item {
   padding: 15px;
@@ -147,19 +167,25 @@ input[type="radio"] {
   cursor: pointer;
   transition: background-color 0.3s;
 }
+/* チャットやグッドアイテムのスタイル。ホバー時の背景色変更を追加。 */
 
 .chat-item:hover {
   background-color: #e0e0e0;
 }
+/* チャットアイテムがホバーされたときの背景色変更。 */
 
 .username {
   font-weight: bold;
 }
+/* ユーザー名を太字に設定。 */
 
 .last-message {
   color: #666;
 }
+/* 最後のメッセージの色をグレーに。 */
 
+/* ホーム画面のスタイル */
 .home {
   align-items: normal;
 }
+/* ホーム画面のアイテム配置を通常に戻しています。 */

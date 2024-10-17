@@ -122,24 +122,25 @@ input[type="radio"] {
 /* ゲーム一覧のスタイル */
 .game-list {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2列に固定 */
-  gap: 20px;
+  grid-template-columns: repeat(2, 1fr); /* 2列に設定 */
+  column-gap: 700px; /* 左右の間隔設定 */
+  row-gap: 50px; /* 縦の間隔設定 */
   padding: 20px;
 }
-/* ゲーム一覧を2列のグリッドレイアウトにし、間隔と余白を指定。 */
+/* ゲーム一覧を2列に固定し、左右のスペース、上下のスペースをを設定。 */
 
 .game-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 15px;
+  padding: 20px;
   transition: transform 0.3s ease;
 }
 /* ゲームアイテムの表示を中央に揃え、ホバー時に拡大するトランジションを追加。 */
 
 .game-icon {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   margin-bottom: 10px;
 }
 /* ゲームアイコンのサイズと余白を指定。 */

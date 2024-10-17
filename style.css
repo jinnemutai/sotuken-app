@@ -190,3 +190,48 @@ input[type="radio"] {
   align-items: normal;
 }
 /* ホーム画面のアイテム配置を通常に戻しています。 */
+
+
+/* ヘッダーのスタイル */
+.header_users {
+  position: fixed;
+  top: 0;
+  left: 0; /* 右側に固定 */
+  height: 100%; /* 画面の高さに合わせる */
+  display: flex;
+  flex-direction: column; /* コンテンツを縦に配置 */
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: #007BFF;
+  padding: 20px;
+  z-index: 1000;
+  width: 500px; /* 固定ヘッダーの幅を指定 */
+  font-size: 30px; /* ヘッダー内の文字を大きく */
+}
+
+/* 年齢範囲のスライダーの背景色と文字サイズ */
+#ageRange {
+  appearance: none;
+  
+  
+}
+
+#ageRange::-webkit-slider-runnable-track{
+  background:#2f9022;
+  height:25px;
+  margin:10%;
+  border-radius: 12.5px;
+}
+
+/* ユーザーリストのスタイル */
+.user-list {
+  margin-top: 20px;
+  margin-right: 270px; /* ヘッダーの幅に合わせて右側に余白を追加 */
+  width: calc(100% - 270px); /* ユーザーリストの幅を調整 */
+  padding: 20px;
+  font-size: 20px; /* ユーザーリスト内の文字サイズを大きく */
+}
+
+.filter{
+  color: #fff;
+}

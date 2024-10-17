@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>ユーザー一覧</title>
+</head>
+<body class="users">
+    <!-- ヘッダー -->
+    <header class="header_users">
+        <div class="filter">
+            <h2>フィルタ</h2>
+            <label for="male">性別:</label>
+            <input type="checkbox" id="male" name="gender" value="male"> 男
+            <input type="checkbox" id="female" name="gender" value="female"> 女
+            <br>
+            <label for="ageRange">年齢範囲: 18 ~ 100</label>
+            <select name="age" id="age">
+                <!-- Optionタグをループして生成 -->
+                <script>
+                  for (let i = 18; i <= 100; i++) {
+                    document.write(`<option value="${i}">${i}</option>`);
+                  }
+               </script>
+            </select>
+            ~
+            <select name="age" id="age">
+                <!-- Optionタグをループして生成 -->
+                <script>
+                  for (let i = 18; i <= 100; i++) {
+                    document.write(`<option value="${i}">${i}</option>`);
+                  }
+                </script>
+            </select>
+                            
+        </div>
+    </header>
+
+    <!-- ユーザーリスト -->
+    <div class="user-list" id="userList">
+        <!-- ユーザー情報がここに挿入される -->
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 画面全体 */
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-between;
+}
+
+/* ヘッダーのスタイル */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #f8f8f8;
+}
+
+/* ロゴのスタイル */
+.logo {
+  font-size: 6em;
+  font-weight: bold;
+  color: #333;
+}
+
+/* ログインボタンのスタイル */
+.login-btn button {
+  padding: 40px 80px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 3em;
+}
+
+.login-btn button:hover {
+  background-color: #0056b3;
+}
+
+/* アカウント作成ボタンのスタイル */
+.create-account-btn {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100%;
+  padding-bottom: 2em;
+}
+
+.create-account-btn button {
+  padding: 15px 30px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 3em;
+}
+
+.create-account-btn button:hover {
+  background-color: #218838;
+}

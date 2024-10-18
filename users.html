@@ -11,9 +11,9 @@
     <header class="header_users">
         <div class="filter">
             <h2>フィルタ</h2>
-            <label for="male">性別:</label>
-            <input type="checkbox" id="male" name="gender" value="male"> 男
-            <input type="checkbox" id="female" name="gender" value="female"> 女
+            <label for="gender">性別:</label>
+            <input type="checkbox" id="male" name="gender" value="male"> 男　
+            <input type="checkbox" id="female" name="gender" value="female"> 女　
             <br>
             <label for="ageRange">年齢範囲: 18 ~ 100</label>
             <select name="age" id="age">
@@ -33,8 +33,31 @@
                   }
                 </script>
             </select>
-                            
-        </div>
+
+            <br>
+            <label for="time">時間帯</label><br>
+            <input type="checkbox" id="morning" name="time" value="morning"> 朝　
+            <input type="checkbox" id="noon" name="time" value="noon"> 昼　
+            <input type="checkbox" id="evening" name="time" value="evening"> 夕方　
+            <input type="checkbox" id="night" name="time" value="night"> 夜　
+            
+            <br>
+            <label for="day">頻度</label><br>
+            <input type="checkbox" id="weekdays" name="day" value="weekdays"> 平日　
+            <input type="checkbox" id="holiday" name="day" value="holiday"> 休日　
+
+            <br>
+            <label for="playstyle">プレイスタイル</label><br>
+            <input type="checkbox" id="mazi" name="playstyle" value="mazi"> ガチ勢　
+            <input type="checkbox" id="enjoy" name="playstyle" value="enjoy"> エンジョイ勢　
+
+            <br>
+            <label for="vc">ボイスチャット</label><br>
+            <input type="checkbox" id="ok" name="vc" value="ok"> 有り　
+            <input type="checkbox" id="no" name="vc" value="no"> 無し　
+            <input type="checkbox" id="near" name="vc" value="near"> 聞き専　
+        
+          </div>
     </header>
 
     <!-- ユーザーリスト -->
